@@ -1,10 +1,11 @@
 import fetch from 'isomorphic-unfetch'
 
-const StarWarsCast = items => {
-  <div className="container">
+const StarWarsCast = (items?: { results?: any[] }) => {
+
+  return <div className="container">
     {
-      items.results.map(item => {
-        <div className="tile" key={item.name + 'key'}>
+      items?.results?.map(item => {
+        return <div className="tile" key={item.name + 'key'}>
           <p>Name: {item.name}</p>
           <p>Height: {item.height}</p>
           <p>Mass: {item.mass}</p>
@@ -18,10 +19,13 @@ const StarWarsCast = items => {
           display: flex;
           flex-wrap: wrap;
         }
+        p {
+          margin-left: 10px;
+        }
         .tile {
           margin: 5px;
           padding: 5px;
-          width: 200px;
+          width: 300px;
           heigth: 150px;
           background:beige; 
         }
